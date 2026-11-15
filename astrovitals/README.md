@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AstraVitals
 
-## Getting Started
+AstraVitals is an offline-first crew health monitoring system designed for deep-space missions. The app is built to operate without continuous Earth connectivity and to provide clinically meaningful feedback to crew members even during communication blackouts.
 
-First, run the development server:
+This project is based on the system design captured in `AstraVitals_System_Design_PRD.pdf` and the current implementation in this repository.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## What the system does
+
+The platform monitors six core vital signs:
+
+- heart rate
+- systolic and diastolic blood pressure
+- blood glucose
+- body temperature
+- sleep duration
+
+It combines data entry, trend analysis, clinical interpretation, and gamified engagement to help crew members maintain health awareness across long-duration missions.
+
+## Key features
+
+- Offline-first operation for blackout conditions
+- Local encrypted storage using AES-256-GCM
+- Guided vitals logging workflow
+- Body-map visualizations and health timeline views
+- Trend evaluation and personalized interpretation states
+- Achievement system to promote regular logging
+- DTN outbox queue for delayed transmission of signed medical bundles
+- Role-aware backend access controls for Earth-side operations
+
+## Tech stack
+
+- Frontend: Next.js, React, TypeScript, Electron
+- Backend: FastAPI, SQLAlchemy, PostgreSQL
+- Security: local encryption, signed bundles, API-key enforcement, RBAC
+- Deployment: Docker, Kubernetes, Terraform
+
+## Project structure
+
+```text
+astrovitals/
+  src/
+  services/
+  infra/
+  docs/
+  prisma/
+  e2e/
+  public/
+  Dockerfile
+  docker-compose.yml
+  package.json
+  README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd astrovitals
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For Electron:
 
-## Learn More
+```bash
+npm run electron:dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+For Docker:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker compose up --build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Mission relevance
 
-## Deploy on Vercel
+AstraVitals demonstrates a resilient, mission-critical design for deep-space operations where terrestrial connectivity cannot be assumed. It focuses on local autonomy, secure data handling, and medically grounded interpretation so crew health monitoring remains effective under extreme conditions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## References
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `AstraVitals_System_Design_PRD.pdf`
+- `docs/project_summary.txt`
+- `docs/project_summary.pdf`
+
