@@ -1,143 +1,87 @@
-# AstraVitals
+<div align="center">
+  <img src="https://img.shields.io/badge/AstraVitals-Deep%20Space%20Health%20Monitor-0B1026?style=for-the-badge&logo=rocket&logoColor=white" alt="AstraVitals" />
+  <br />
+  <img src="https://img.shields.io/badge/TypeScript-67.5%25-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Python-24.8%25-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Cloud-Network%20Resilient-0EA5E9?style=flat-square" alt="Network resilient" />
+  <img src="https://img.shields.io/badge/Status-Mission%20Ready%20Prototype-22C55E?style=flat-square" alt="Mission ready prototype" />
+</div>
 
-AstraVitals is an offline-first crew health monitoring platform for deep-space missions. This repository contains the system design, application, backend services, and deployment assets for a mission-critical health dashboard built to operate during communication blackouts, delayed links, and intermittent connectivity.
+# 🚀 AstraVitals
 
-This README is based on the system design captured in `AstraVitals_System_Design_PRD.pdf` and the current implementation in this repository.
+AstraVitals is an offline-first crew health monitoring platform built for deep-space missions, where communication blackouts, delayed links, and intermittent connectivity can make traditional medical systems unreliable or unusable.
 
-## Why AstraVitals exists
+This repository contains the system concept, application implementation, backend services, infrastructure templates, and supporting documentation behind the AstraVitals mission health platform.
 
-Deep-space crews cannot rely on continuous Earth connectivity. During solar conjunction, network outages, or long latency windows, traditional health systems become unusable. AstraVitals keeps medical monitoring functional on-device by combining:
+> “Health continuity when Earth is out of reach.”
 
-- local data capture for vital signs
-- on-device interpretation and triage guidance
-- encrypted local storage
-- tamper-evident queued sync bundles for later transmission
-- role-aware ground-side access controls
+## ✨ Why AstraVitals matters
 
-## Core capabilities
+During solar conjunctions, deep-space transit, or communication gaps, terrestrial health systems assume constant connectivity. AstraVitals keeps crew health monitoring alive on-device by combining:
 
-- Guided logging for six critical vitals:
-  - heart rate
-  - blood pressure (systolic and diastolic)
-  - blood glucose
-  - body temperature
-  - sleep duration
-- SVG body map and timeline-based health views
-- Trend charts and trend-aware assessment logic
-- Wellness scoring gauge and gamified achievement tracking
-- Offline-first storage using local encryption
-- DTN-style outbox workflow with signed bundle transmission
-- FastAPI-based ground backend with RBAC and API-key validation
+- local vital-sign collection
+- encrypted storage
+- on-device clinical interpretation
+- trend-aware health scoring
+- tamper-evident delayed sync for Earth return
 
-## System overview
+## 🩺 What the system monitors
 
-The project is split into a desktop application and a ground backend:
+The platform tracks six critical vital signs:
 
-- Frontend / client app: Electron + Next.js + React + TypeScript
-- Local logic: encrypted IndexedDB storage, threshold rules, trend interpretation
-- Backend service: Python + FastAPI + SQLAlchemy + PostgreSQL
-- Infrastructure: Docker, Kubernetes manifests, and Terraform assets
+- Heart rate
+- Blood pressure (systolic + diastolic)
+- Blood glucose
+- Body temperature
+- Sleep duration
 
-## Architecture highlights
+It presents readings through a guided logging workflow, body-map views, charts, score cards, and achievement tracking to encourage consistent health monitoring.
 
-### Client / Crew interface
+## 🏗️ Architecture at a glance
 
-The app is designed to run as an offline mission tool for crew members and medics. It includes:
+| Layer | Stack | Purpose |
+| --- | --- | --- |
+| Client app | Next.js + React + TypeScript + Electron | Crew-facing desktop experience |
+| Local logic | IndexedDB, encryption, interpretation engine | Secure offline health analysis |
+| Backend | FastAPI + SQLAlchemy + PostgreSQL | Ground-side data handling and APIs |
+| Sync | DTN-inspired outbox + signed bundles | Delay-tolerant data transfer |
+| Infra | Docker + Kubernetes + Terraform | Deployment and environment readiness |
 
-- a guided vitals logging form
-- body-map annotations for symptoms or areas of concern
-- charts for trend tracking over time
-- score cards and interpretation states: GREEN, YELLOW, RED
-- a gamification layer to encourage consistent logging behaviors
+## 🔐 Key features
 
-### Interpretation engine
+- Offline-first health monitoring for blackout conditions
+- AES-256-GCM encrypted local storage
+- Clinical interpretation with GREEN / YELLOW / RED states
+- Trend analysis and threshold-based escalation logic
+- Gamified health engagement and achievement tracking
+- Signed, hashed bundle transmission for delayed sync
+- Role-based access control and API-key validation on the backend
 
-AstraVitals evaluates each reading with a multi-stage assessment model:
-
-1. threshold band classification
-2. trend downgrade logic
-3. combined-signal escalation
-4. metric-specific clinical guidance
-
-This allows the platform to issue actionable health feedback even without cloud-based analysis.
-
-### Security model
-
-The solution emphasizes resilient security for mission environments:
-
-- AES-256-GCM encryption for local sensitive data
-- non-extractable CryptoKey usage in browser storage
-- separate device encryption keys from bundle signing keys
-- Ed25519 signatures and SHA-256 hashing for synchronization bundles
-- constant-time API key validation and RBAC enforcement on the ground backend
-
-### Delay-tolerant synchronization
-
-During blackout periods, the app bundles data into an outbox queue for delayed transmission when connectivity returns. This preserves mission continuity without requiring immediate Earth access.
-
-## Repository structure
+## 📁 Repository structure
 
 ```text
-AstraVitals_System_Design_PRD.pdf
-astrovitals/
-  app/                     # Next.js app and UI files
-  src/                     # frontend components, hooks, lib, theme, types
-  services/
-    api/                   # FastAPI ground backend
-  infra/
-    docker/
-    k8s/
-    terraform/
-  docs/
-    project_summary.txt
-    astrovitals_presentation.pdf
-    project_summary.pdf
-  prisma/
-  e2e/
-  public/
-  Dockerfile
-  docker-compose.yml
-  package.json
-  main.ts
-  README.md
+.
+├── AstraVitals_System_Design_PRD.pdf
+├── README.md
+├── astrovitals/
+│   ├── src/
+│   ├── services/
+│   ├── infra/
+│   ├── docs/
+│   ├── prisma/
+│   ├── e2e/
+│   ├── public/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── package.json
+│   ├── main.ts
+│   └── README.md
+└── docs and deployment assets
 ```
 
-## Project stack
+## 🚀 Quick start
 
-### Frontend
-
-- Next.js 16
-- React 19
-- TypeScript 5
-- Electron for desktop deployment
-- Tailwind styling
-
-### Backend
-
-- Python 3.10+
-- FastAPI
-- SQLAlchemy async
-- PostgreSQL
-- Redis and Kafka-oriented messaging patterns
-
-### Deployment and infrastructure
-
-- Docker
-- Docker Compose
-- Kubernetes manifests
-- Terraform modules
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20+
-- npm or pnpm
-- Python 3.10+
-- Docker and Docker Compose
-- PostgreSQL (if running outside Docker)
-
-### Run the web app
+### Frontend app
 
 ```bash
 cd astrovitals
@@ -145,17 +89,21 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000 to view the application.
-
-### Run Electron locally
+### Electron desktop app
 
 ```bash
 cd astrovitals
-npm install
 npm run electron:dev
 ```
 
-### Run the backend service
+### Docker stack
+
+```bash
+cd astrovitals
+docker compose up --build
+```
+
+### Backend service
 
 ```bash
 cd astrovitals/services/api
@@ -165,39 +113,23 @@ pip install -e .
 uvicorn app.main:app --reload
 ```
 
-### Run the stack with Docker
+## 🧠 Mission relevance
 
-```bash
-cd astrovitals
-docker compose up --build
-```
+AstraVitals is designed to demonstrate how healthcare systems can remain operational in environments where Earth connectivity is limited or absent. The project highlights resilience, trust, and autonomy for crew operations in future lunar and deep-space missions.
 
-## Environment variables
-
-Common values used by the stack include:
-
-- `POSTGRES_PASSWORD`
-- `DATABASE_URL`
-- `ASTRA_API_KEY`
-
-The application is designed to be configured for both local development and mission-like deployments.
-
-## Mission relevance
-
-AstraVitals is not just a health dashboard; it represents a resilient design pattern for mission operations in environments where the network is unreliable or unavailable. It demonstrates how health monitoring can remain functional under deep-space constraints while preserving data integrity, user trust, and operational safety.
-
-## Documentation and references
+## 📚 Documentation
 
 - `AstraVitals_System_Design_PRD.pdf`
 - `astrovitals/docs/project_summary.txt`
 - `astrovitals/docs/project_summary.pdf`
 - `astrovitals/docs/astrovitals_presentation.pdf`
 
-## Notes
+## 🌌 Status
 
-This repository is a prototype and hackathon implementation focused on demonstrating a complete concept for offline-first crew health monitoring. It is intended to be adapted into a fuller mission-ready software stack as the design evolves.
+This repository represents a mission-ready concept prototype for offline-first crew health monitoring and is intended to evolve into a fuller operational system as the design is refined.
 
-## License
+---
 
-No explicit license file is included in this repository yet.
-
+<div align="center">
+  <img src="https://img.shields.io/badge/Designed%20for-NASA%20Hackathon-0B3D91?style=for-the-badge" alt="NASA Hackathon" />
+</div>
