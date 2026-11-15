@@ -1,0 +1,35 @@
+AstraVitals: Crew Health Monitoring for Deep Space Missions
+
+What did you develop?
+
+AstraVitals is an offline-first crew health monitoring platform with an Electron desktop app
+(React 19, TypeScript 5) and a FastAPI ground backend (Python, SQLAlchemy async, PostgreSQL).
+It tracks six vital signs — heart rate, blood pressure (systolic/diastolic), blood glucose,
+body temperature, and sleep duration — through a guided logging form, an SVG BodyMap, TrendChart
+line charts, VitalCard displays, a ScoreRing wellness gauge, and a gamification layer with seven
+achievement types. All data is encrypted locally with AES-256-GCM using a non-extractable
+CryptoKey in IndexedDB. An on-device interpretation engine classifies each reading as GREEN,
+YELLOW, or RED through four stages: threshold band classification, trend downgrade, combined-
+signal escalation, and metric-specific guidance. Sync to Earth uses a DTN outbox queue with
+Ed25519-signed, SHA-256-hashed bundles. The backend enforces role-based access control and
+constant-time API-key authentication.
+
+How does it address the challenge?
+
+Deep space missions face communication windows that are limited, delayed, or absent. Terrestrial
+health platforms assume constant cloud connectivity. AstraVitals makes the device fully self-
+sufficient: all storage, encryption, and interpretation run on-device with no network calls. The
+DTN outbox queues signed bundles for delivery when connectivity returns, so no data is lost during
+blackout periods. Crew members receive immediate, clinically grounded feedback on every reading,
+and the gamification layer sustains consistent logging behavior over long missions.
+
+Why is it important?
+
+Astronaut health monitoring is mission-critical with no margin for failure. A platform dependent
+on Earth connectivity is useless during solar conjunction, emergencies, or deep space transit.
+AstraVitals proves that medically serious health monitoring can run entirely offline with strong
+encryption, clinically valid interpretation, and tamper-evident synchronization. Device encryption
+is separated from the bundle signing key, so device compromise does not expose the signing
+identity. Removing all external UI dependencies eliminates supply-chain risk. AstraVitals provides
+a foundation for health monitoring on lunar surface missions, Mars transit, and other deep space
+endeavors where Earth connectivity cannot be assumed.

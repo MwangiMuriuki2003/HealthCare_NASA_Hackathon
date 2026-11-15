@@ -1,0 +1,101 @@
+%PDF-1.4
+
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+
+1 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 2 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+4 0 obj
+<< /Length 3008 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(AstraVitals: Project Summary) Tj
+54 696 m 558 696 l S
+54.0 676.0 moveto
+(AstraVitals is an offline-first crew health monitoring platform designed for space mission) Tj
+54.0 662.0 moveto
+(environments where network connectivity is intermittent or absent. It combines an Electron) Tj
+54.0 648.0 moveto
+(desktop application with a FastAPI ground backend to continuously track six critical) Tj
+54.0 634.0 moveto
+(astronaut vitals: heart rate, blood pressure \(systolic and diastolic\), blood glucose, body) Tj
+54.0 620.0 moveto
+(temperature, and sleep duration.) Tj
+54.0 598.0 moveto
+(The challenge it addresses is the high-stakes problem of monitoring astronaut health during) Tj
+54.0 584.0 moveto
+(long-duration space missions where real-time communication with Earth is not always) Tj
+54.0 570.0 moveto
+(possible. In the isolated environment of a spacecraft, space station, or planetary base,) Tj
+54.0 556.0 moveto
+(crew members must be able to log vital readings, receive immediate interpretation and) Tj
+54.0 542.0 moveto
+(guidance, and maintain a local encrypted record of their health data -- all without relying) Tj
+54.0 528.0 moveto
+(on a constant connection to mission control.) Tj
+54.0 506.0 moveto
+(AstraVitals is important because astronaut health monitoring in space presents unique) Tj
+54.0 492.0 moveto
+(challenges not addressed by terrestrial health platforms. The system must operate entirely) Tj
+54.0 478.0 moveto
+(offline, encrypt all sensitive health data on the device using AES-256-GCM with a) Tj
+54.0 464.0 moveto
+(non-extractable key stored in IndexedDB, provide clinically validated interpretation of) Tj
+54.0 450.0 moveto
+(vital signs using threshold-based classification with trend analysis and combined-signal) Tj
+54.0 436.0 moveto
+(escalation, and sync data to the ground station when connectivity is restored via a) Tj
+54.0 422.0 moveto
+(delay-tolerant networking \(DTN\) outbox queue with Ed25519-signed, SHA-256-hashed sync) Tj
+54.0 408.0 moveto
+(bundles.) Tj
+54.0 386.0 moveto
+(The platform includes an on-device interpretation engine that classifies each reading as) Tj
+54.0 372.0 moveto
+(GREEN \(nominal\), YELLOW \(watch\), or RED \(critical\) based on clinician-configurable normal) Tj
+54.0 358.0 moveto
+(ranges with warning buffers, detects trends using rolling statistics and rate-of-change) Tj
+54.0 344.0 moveto
+(analysis, and escalates status when multiple metrics are simultaneously off-nominal. The) Tj
+54.0 330.0 moveto
+(ground backend provides role-based access control for astronauts, medical officers, and) Tj
+54.0 316.0 moveto
+(mission control, an append-only audit log for compliance, and API-key authentication for) Tj
+54.0 302.0 moveto
+(service-to-service communication. A gamification layer with achievement badges and wellness) Tj
+54.0 288.0 moveto
+(scoring encourages consistent logging behavior -- critical for maintaining the quality of) Tj
+54.0 274.0 moveto
+(health data throughout a mission.) Tj
+ET
+endstream
+endobj
+
+
+xref
+0 4
+0000000000 65535 f
+0000000000 00000 n
+0000000000 00000 n
+0000000000 00000 n
+0000000161 00000 n
+
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+%%EOF

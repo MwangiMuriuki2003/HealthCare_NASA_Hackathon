@@ -1,0 +1,102 @@
+// Prisma schema for AstraVitals - Astronaut Health Monitoring System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ASTRONAUT
+  MEDICAL_OFFICER
+  MISSION_CONTROL
+}
+
+enum Environment {
+  SPACECRAFT
+  SPACE_STATION
+  ROVER
+  BASE
+}
+
+enum Metric {
+  BLOOD_PRESSURE_SYSTOLIC
+  BLOOD_PRESSURE_DIASTOLIC
+  HEART_RATE
+  BLOOD_GLUCOSE
+  BODY_TEMPERATURE
+  SLEEP_DURATION
+}
+
+enum Source {
+  MANUAL
+  CAMERA
+  WEARABLE
+  CGM
+}
+
+enum AchievementType {
+  SEVEN_DAY_LOGGER
+  HYDRATION_HERO
+  SLEEP_CHAMPION
+  FIRST_READING
+  HEART_HEALTHY
+  GLUCOSE_CONTROL
+  TEMPERATURE_STABLE
+  COMPLIANCE_HERO
+}
+
+model Astronaut {
+  id           String   @id @default(cuid())
+  name         String
+  role         Role     @default(ASTRONAUT)
+  missionId    String?
+  mission      Mission? @relation(fields: [missionId], references: [id])
+  vitals       Vital[]
+  achievements Achievement[]
+  createdAt    DateTime @default(now())
+}
+
+model Mission {
+  id           String   @id @default(cuid())
+  name         String
+  environment  Environment
+  startTime    DateTime
+  endTime      DateTime?
+  astronauts   Astronaut[]
+}
+
+model Vital {
+  id           String     @id @default(cuid())
+  astronautId  String
+  astronaut    Astronaut @relation(fields: [astronautId], references: [id])
+  metric       Metric
+  value        Float
+  unit         String
+  source       Source     // MANUAL | CAMERA | WEARABLE | CGM
+  recordedAt   DateTime   @default(now())
+
+  @@index([astronautId, metric, recordedAt])
+}
+
+model Achievement {
+  id           String   @id @default(cuid())
+  astronautId  String
+  astronaut    Astronaut @relation(fields: [astronautId], references: [id])
+  type         AchievementType
+  earnedAt     DateTime @default(now())
+}
+
+model Reminder {
+  id           String   @id @default(cuid())
+  astronautId  String
+  astronaut    Astronaut @relation(fields: [astronautId], references: [id])
+  type         String   // CHECK_VITALS | EXERCISE | SLEEP | MEDICATION
+  cronExpr     String
+  message      String
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AstraVitals Clinician Threshold Rules Schema",
+  "type": "object",
+  "description": "Clinician-editable threshold configuration for the interpretation engine.",
+  "properties": {
+    "normal_ranges": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "type": "number" }
+      },
+      "description": "Per-metric normal ranges [min, max] in clinician-chosen units."
+    },
+    "warning_buffer_percent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.5,
+      "default": 0.1,
+      "description": "Percentage buffer beyond normal range that triggers YELLOW (Watch) status."
+    },
+    "critical_multiplier": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 3,
+      "default": 1.5,
+      "description": "Multiplier beyond normal + warning that triggers RED (Critical) status."
+    },
+    "trend_windows": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Number of recent readings to consider for trend analysis per metric."
+      },
+      "description": "Rolling window sizes per metric for trend/drift analysis."
+    },
+    "combined_signal_rules": {
+      "type": "object",
+      "properties": {
+        "escalate_if_yellow_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "default": 3,
+          "description": "If this many metrics are YELLOW simultaneously, escalate the next to RED."
+        },
+        "require_medical_officer_alert": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to require Medical Officer notification on combined escalation."
+        }
+      },
+      "required": ["escalate_if_yellow_count"],
+      "description": "Combined-signal escalation rules."
+    },
+    "guidance_templates": {
+      "type": "object",
+      "properties": {
+        "green": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Plain-language guidance for GREEN status per metric."
+          },
+          "description": "GREEN status guidance templates."
+        },
+        "yellow": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Plain-language guidance for YELLOW status per metric."
+          },
+          "description": "YELLOW status guidance templates."
+        },
+        "red": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "description": "Plain-language guidance for RED status per metric."
+          },
+          "description": "RED status guidance templates."
+        }
+      },
+      "description": "Clinician-editable guidance text per status/metric combination."
+    }
+  },
+  "required": ["normal_ranges"],
+  "additionalProperties": false
+}

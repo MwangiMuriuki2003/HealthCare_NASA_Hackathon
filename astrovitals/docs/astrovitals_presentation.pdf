@@ -1,0 +1,768 @@
+%PDF-1.4
+
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R] /Count 7 >>
+endobj
+
+
+
+3 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 4 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+4 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 5 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+5 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 6 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+6 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 7 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+7 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 8 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+8 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 9 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+9 0 obj
+<< /Type /Page
+   /Parent 2 0 R
+   /MediaBox [0 0 612 792]
+   /Contents 10 0 R
+   /Resources << /Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >> >>
+>>
+endobj
+
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+
+6 0 obj
+<< /Length 2297 >>
+stream
+BT
+/F2 22.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(AstraVitals) Tj
+0 -28 rmoveto
+/F1 14.0 Tf
+0.235 0.235 0.235 rg
+54.0 692.0 moveto
+(Crew Health Monitoring System for Deep Space Missions) Tj
+0 -20 rmoveto
+/F1 10.0 Tf
+0.471 0.471 0.471 rg
+54.0 672.0 moveto
+(Project Summary & Technical Presentation) Tj
+54 636 m 558 636 l S
+/F1 11.0 Tf
+0.118 0.118 0.118 rg
+54.0 606.0 moveto
+(AstraVitals is an offline-first crew health monitoring platform designed for space mission) Tj
+54.0 592.0 moveto
+(environments where network connectivity is intermittent or absent. It combines an Electron) Tj
+54.0 578.0 moveto
+(desktop application with a FastAPI ground backend to continuously track six critical) Tj
+54.0 564.0 moveto
+(astronaut vitals: heart rate, blood pressure \(systolic and diastolic\), blood glucose, body) Tj
+54.0 550.0 moveto
+(temperature, and sleep duration.) Tj
+54.0 528.0 moveto
+(The challenge it addresses is the high-stakes problem of monitoring astronaut health during) Tj
+54.0 514.0 moveto
+(long-duration space missions where real-time communication with Earth is not always) Tj
+54.0 500.0 moveto
+(possible. In the isolated environment of a spacecraft, space station, or planetary base,) Tj
+54.0 486.0 moveto
+(crew members must be able to log vital readings, receive immediate interpretation and) Tj
+54.0 472.0 moveto
+(guidance, and maintain a local encrypted record of their health data -- all without relying) Tj
+54.0 458.0 moveto
+(on a constant connection to mission control.) Tj
+54.0 436.0 moveto
+(AstraVitals is important because astronaut health monitoring in space presents unique) Tj
+54.0 422.0 moveto
+(challenges not addressed by terrestrial health platforms. The system must operate entirely) Tj
+54.0 408.0 moveto
+(offline, encrypt all sensitive health data on the device using AES-256-GCM with a) Tj
+54.0 394.0 moveto
+(non-extractable key stored in IndexedDB, provide clinically validated interpretation of) Tj
+54.0 380.0 moveto
+(vital signs using threshold-based classification with trend analysis and combined-signal) Tj
+54.0 366.0 moveto
+(escalation, and sync data to the ground station when connectivity is restored via a) Tj
+54.0 352.0 moveto
+(delay-tolerant networking \(DTN\) outbox queue with Ed25519-signed, SHA-256-hashed sync) Tj
+54.0 338.0 moveto
+(bundles.) Tj
+ET
+endstream
+endobj
+
+8 0 obj
+<< /Length 2258 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(System Architecture) Tj
+54 696 m 558 696 l S
+/F1 11.0 Tf
+0.118 0.118 0.118 rg
+54.0 676.0 moveto
+(AstraVitals follows a client-server architecture with an offline-first design philosophy.) Tj
+54.0 662.0 moveto
+(The client application runs on astronaut devices as an Electron desktop app, storing all) Tj
+54.0 648.0 moveto
+(data locally in an encrypted IndexedDB database. The server runs as a FastAPI application) Tj
+54.0 634.0 moveto
+(with SQLAlchemy async ORM backed by PostgreSQL/TimescaleDB for time-series health data.) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 608.0 moveto
+(Key Components) Tj
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 590.0 moveto
+(*) Tj
+76.0 590.0 moveto
+(Electron Desktop App -- Offline-first PWA shell with encrypted local storage, built with) Tj
+(Electron 28, React 19, and TypeScript 5.) Tj
+54.0 560.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 560.0 moveto
+(*) Tj
+76.0 560.0 moveto
+(Encrypted IndexedDB Store -- AES-256-GCM encryption with non-extractable key in a separate) Tj
+(object store; five object stores: readings, baselines, routine, outbox, keys.) Tj
+54.0 530.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 530.0 moveto
+(*) Tj
+76.0 530.0 moveto
+(Interpretation Engine -- Pure on-device classification with threshold bands, trend) Tj
+(detection, and combined-signal escalation. Operates in four stages: band classification,) Tj
+(trend downgrade, combined-signal escalation, and plain-language guidance generation.) Tj
+54.0 487.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 487.0 moveto
+(*) Tj
+76.0 487.0 moveto
+(DTN Outbox Queue -- Store-and-forward sync with Ed25519-signed, SHA-256-hashed bundles for) Tj
+(delay-tolerant networking to the ground station.) Tj
+54.0 457.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 457.0 moveto
+(*) Tj
+76.0 457.0 moveto
+(FastAPI Backend -- Role-based access control, API-key authentication, TimescaleDB) Tj
+(persistence, append-only audit log for compliance.) Tj
+54.0 427.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 427.0 moveto
+(*) Tj
+76.0 427.0 moveto
+(Gamification Layer -- Achievement badges, wellness scoring, and streak tracking to encourage) Tj
+(consistent logging behavior throughout the mission.) Tj
+54.0 397.0 moveto
+ET
+endstream
+endobj
+
+10 0 obj
+<< /Length 3307 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(Technical Implementation) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 698.0 moveto
+(Frontend \(Electron / React / TypeScript\)) Tj
+54.0 680.0 moveto
+(The desktop application is built with Electron 28, React 19, and TypeScript 5 with strict) Tj
+54.0 666.0 moveto
+(type checking. The UI is a self-contained dashboard with no external UI dependencies --) Tj
+54.0 652.0 moveto
+(shadcn, radix-ui, lucide-react, and recharts were removed as dead code that referenced) Tj
+54.0 638.0 moveto
+(uninstalled packages. The dashboard includes:) Tj
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 618.0 moveto
+(*) Tj
+76.0 618.0 moveto
+(ScoreRing -- SVG circular gauge showing overall wellness score \(0-100\) with an accessible) Tj
+(detail breakdown including compliance, adherence, and risk percentages. Color transitions:) Tj
+(green \(>=80\), amber \(>=50\), red \(<50\).) Tj
+54.0 575.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 575.0 moveto
+(*) Tj
+76.0 575.0 moveto
+(BodyMap -- SVG anatomy diagram with six clickable body regions linked to vital metrics. Each) Tj
+(region is a keyboard-operable button with aria-label; color is never the only signal.) Tj
+54.0 545.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 545.0 moveto
+(*) Tj
+76.0 545.0 moveto
+(TrendChart -- SVG line chart of recent readings against clinical bands \(normal range,) Tj
+(warning, critical\), with shaded region overlays and a latest-value marker.) Tj
+54.0 515.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 515.0 moveto
+(*) Tj
+76.0 515.0 moveto
+(VitalCard -- Reading display with value, status pill, trend sparkline, and guidance text.) Tj
+(Re-interprets readings using the engine if no cached interpretation exists.) Tj
+54.0 485.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 485.0 moveto
+(*) Tj
+76.0 485.0 moveto
+(LogVitals -- Guided entry form with metric selection, numeric input validated against) Tj
+(plausible ranges \(distinct from clinical normal bands\), live preview of interpretation, and) Tj
+(save flow that persists to store, updates routine state, and enqueues an outbox package.) Tj
+54.0 442.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 442.0 moveto
+(*) Tj
+76.0 442.0 moveto
+(StatusPill -- WCAG-accessible status indicator with text label, icon, and trend indicator.) Tj
+(Color plus text plus icon ensures the status is perceivable by users with color vision) Tj
+(deficiencies.) Tj
+54.0 399.0 moveto
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 389.0 moveto
+(Encrypted Storage) Tj
+54.0 371.0 moveto
+(All health data is encrypted at rest using AES-256-GCM via the WebCrypto API. The) Tj
+54.0 357.0 moveto
+(encryption key is generated as a non-extractable CryptoKey and stored in a separate) Tj
+54.0 343.0 moveto
+(IndexedDB object store \(the 'keys' store\), so a raw disk copy of the database does not) Tj
+54.0 329.0 moveto
+(expose health data. An attacker running code in the same origin can still request) Tj
+54.0 315.0 moveto
+(decryption -- which is why a real deployment also requires a passphrase or hardware key. The) Tj
+54.0 301.0 moveto
+(store supports five object stores with appropriate indexes for astronaut, metric,) Tj
+54.0 287.0 moveto
+(recordedAt, status, and createdAt queries. Database schema versioning is tracked via) Tj
+54.0 273.0 moveto
+(DB_VERSION in db-config.ts.) Tj
+ET
+endstream
+endobj
+
+12 0 obj
+<< /Length 2777 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(Interpretation Engine) Tj
+/F1 11.0 Tf
+0.118 0.118 0.118 rg
+54.0 698.0 moveto
+(The interpretation engine is the product's core intellectual property. It runs entirely on-device with no network access and produces a plain-language status, reason, and conservative guidance for each reading.) Tj
+/F2 12.0 Tf
+0.086 0.314 0.627 rg
+54.0 682.0 moveto
+(Step 1 -- Baseline-Relative Band Classification) Tj
+62.0 666.0 moveto
+(Each value is checked against the metric's normal range \(GREEN\), warning buffer \(YELLOW\), or) Tj
+62.0 653.0 moveto
+(critical threshold \(RED\). The warning buffer is 10% of the normal range span beyond each edge,) Tj
+62.0 640.0 moveto
+(so it behaves consistently across narrow ranges \(temperature\) and wide ones \(glucose\). Missing) Tj
+62.0 627.0 moveto
+(or non-finite values are reported as YELLOW with a 'No reading' label.) Tj
+/F2 12.0 Tf
+0.086 0.314 0.627 rg
+54.0 608.0 moveto
+(Step 2 -- Trend Downgrade) Tj
+62.0 592.0 moveto
+(A reading within the normal band that shows a declining trend is escalated to YELLOW, because a) Tj
+62.0 579.0 moveto
+(downward trajectory inside normal limits still signals deterioration. Trend direction is) Tj
+62.0 566.0 moveto
+(computed from the rate of change over the most recent readings, with metric-aware polarity) Tj
+62.0 553.0 moveto
+(\(increasing sleep duration is good; increasing heart rate is not\).) Tj
+/F2 12.0 Tf
+0.086 0.314 0.627 rg
+54.0 534.0 moveto
+(Step 3 -- Combined-Signal Escalation) Tj
+62.0 518.0 moveto
+(If three or more metrics are simultaneously off-nominal within a 24-hour context window, the) Tj
+62.0 505.0 moveto
+(status of the current reading is escalated one level. This catches clustered abnormalities that) Tj
+62.0 492.0 moveto
+(indicate systemic issues rather than isolated events.) Tj
+/F2 12.0 Tf
+0.086 0.314 0.627 rg
+54.0 473.0 moveto
+(Step 4 -- Plain-Language Reason and Guidance) Tj
+62.0 457.0 moveto
+(Each classification produces a human-readable reason \(e.g., 'Heart rate is critically above the) Tj
+62.0 444.0 moveto
+(normal maximum of 100 bpm'\) and metric-specific guidance text. Guidance is conservatively worded) Tj
+62.0 431.0 moveto
+(for space medicine contexts \(e.g., 'Sit down, stay calm and notify the Medical Officer now.) Tj
+62.0 418.0 moveto
+(Repeat the reading in 5 minutes' for RED heart rate\).) Tj
+54.0 395.0 moveto
+(The engine also computes rolling statistics \(mean, median, standard deviation, min, max\)) Tj
+54.0 381.0 moveto
+(over a sliding window of up to 24 readings, detects rate of change in units per minute, and) Tj
+54.0 367.0 moveto
+(detects drift beyond two standard deviations from baseline. Trend windows are configurable) Tj
+54.0 353.0 moveto
+(per metric via the rules schema package.) Tj
+ET
+endstream
+endobj
+
+14 0 obj
+<< /Length 3371 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(Backend & Security Model) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 698.0 moveto
+(FastAPI Backend) Tj
+54.0 682.0 moveto
+(The ground backend is a FastAPI application with async SQLAlchemy ORM backed by PostgreSQL.) Tj
+54.0 668.0 moveto
+(It provides REST endpoints for crew reading ingestion, astronaut readings retrieval,) Tj
+54.0 654.0 moveto
+(baseline computation, achievement awarding, reminder creation, mission control aggregation,) Tj
+54.0 640.0 moveto
+(and research cohort access. All endpoints are protected by role-based access control) Tj
+54.0 626.0 moveto
+(dependencies.) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 604.0 moveto
+(Security Model) Tj
+/F2 11.0 Tf
+0.157 0.157 0.157 rg
+54.0 588.0 moveto
+(API-Key Authentication) Tj
+62.0 574.0 moveto
+(Service-to-service calls are authenticated via the X-API-Key header with constant-time comparison) Tj
+62.0 562.0 moveto
+(against the ASTRA_API_KEY environment variable. Constant-time comparison prevents timing) Tj
+62.0 550.0 moveto
+(side-channel attacks that could leak the key one byte at a time. When ASTRA_API_KEY is not) Tj
+62.0 538.0 moveto
+(configured, all requests are denied by default -- a missing secret is safe.) Tj
+54.0 520.0 moveto
+/F2 11.0 Tf
+0.157 0.157 0.157 rg
+54.0 520.0 moveto
+(Role-Based Access Control) Tj
+62.0 506.0 moveto
+(Six roles \(Astronaut, Medical Officer, Mission Control, Planner, Researcher, Admin\) with permission) Tj
+62.0 494.0 moveto
+(sets enforced via FastAPI Depends\(\) dependencies. The prototype uses an X-User-Role header for demo) Tj
+62.0 482.0 moveto
+(purposes; production deployment requires JWT claim verification or mTLS certificate Subject DN) Tj
+62.0 470.0 moveto
+(mapping. The header-based approach is documented as insecure and must not be used in production.) Tj
+54.0 452.0 moveto
+/F2 11.0 Tf
+0.157 0.157 0.157 rg
+54.0 452.0 moveto
+(Bundle Verification) Tj
+62.0 438.0 moveto
+(Inbound DTN sync bundles are verified with Ed25519 signature over a SHA-256 hash of the canonical) Tj
+62.0 426.0 moveto
+(JSON payload \(sorted keys, no whitespace\). This ensures both integrity \(the hash matches\) and) Tj
+62.0 414.0 moveto
+(authenticity \(the signature verifies against the trusted public key\). The client in) Tj
+62.0 402.0 moveto
+(src/lib/crypto.ts and the server in security/keys.py use the same canonicalization convention.) Tj
+54.0 384.0 moveto
+/F2 11.0 Tf
+0.157 0.157 0.157 rg
+54.0 384.0 moveto
+(Append-Only Audit Log) Tj
+62.0 370.0 moveto
+(Every significant action \(reading ingestion, achievement award, bundle verification, outbox status) Tj
+62.0 358.0 moveto
+(change\) is recorded in an append-only audit_events table with astronaut_id, action type, JSON) Tj
+62.0 346.0 moveto
+(details, and timestamp. The audit log supports compliance auditing and forensic investigation of) Tj
+62.0 334.0 moveto
+(anomalous activity.) Tj
+54.0 316.0 moveto
+/F2 11.0 Tf
+0.157 0.157 0.157 rg
+54.0 316.0 moveto
+(Device-Level Encryption) Tj
+62.0 302.0 moveto
+(AES-256-GCM encryption of all local data with a non-extractable CryptoKey ensures that a stolen or) Tj
+62.0 290.0 moveto
+(lost device does not expose crew health information. The key is never exported from the browser's) Tj
+62.0 278.0 moveto
+(key store and cannot be extracted by JavaScript running in the same origin without user interaction.) Tj
+54.0 260.0 moveto
+ET
+endstream
+endobj
+
+16 0 obj
+<< /Length 3416 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(Data Model) Tj
+/F1 11.0 Tf
+0.118 0.118 0.118 rg
+54.0 698.0 moveto
+(The system tracks six vital signs defined as a closed enum. Normal ranges are clinician-configurable through the rules schema package.) Tj
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 682.0 moveto
+(*) Tj
+76.0 682.0 moveto
+(BLOOD_PRESSURE_SYSTOLIC -- 90-120 mmHg \(input range 50-250\)) Tj
+54.0 665.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 665.0 moveto
+(*) Tj
+76.0 665.0 moveto
+(BLOOD_PRESSURE_DIASTOLIC -- 60-80 mmHg \(input range 30-150\)) Tj
+54.0 648.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 648.0 moveto
+(*) Tj
+76.0 648.0 moveto
+(HEART_RATE -- 60-100 bpm \(input range 30-220\)) Tj
+54.0 631.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 631.0 moveto
+(*) Tj
+76.0 631.0 moveto
+(BLOOD_GLUCOSE -- 70-140 mg/dL \(input range 10-600\)) Tj
+54.0 614.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 614.0 moveto
+(*) Tj
+76.0 614.0 moveto
+(BODY_TEMPERATURE -- 36.1-37.2°C \(input range 33-42\)) Tj
+54.0 597.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 597.0 moveto
+(*) Tj
+76.0 597.0 moveto
+(SLEEP_DURATION -- 7-9 hours \(input range 0-24\)) Tj
+54.0 580.0 moveto
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 568.0 moveto
+(Entity Relationships) Tj
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 550.0 moveto
+(*) Tj
+76.0 550.0 moveto
+(Astronaut -- Central entity: id \(String, PK\), name, role \(Role enum\), environment, status,) Tj
+(mission_start \(MET hours\), created_at, updated_at. Related to readings, baselines, achievements,) Tj
+(reminders, audit_events.) Tj
+54.0 510.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 510.0 moveto
+(*) Tj
+76.0 510.0 moveto
+(Reading \(Vital\) -- Each vital reading: id \(String, PK\), astronaut_id \(FK -> Astronaut\), metric) Tj
+(\(Metric enum\), value \(Float\), unit, source \(Source enum\), trend \(TrendDirection\),) Tj
+(is_first_of_day, recorded_at. Has one Interpretation.) Tj
+54.0 470.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 470.0 moveto
+(*) Tj
+76.0 470.0 moveto
+(Interpretation -- One-to-one with Reading: id \(String, PK\), reading_id \(FK, unique\), status) Tj
+(\(GREEN/YELLOW/RED\), reason \(Text\), guidance \(Text\), computed_at.) Tj
+54.0 442.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 442.0 moveto
+(*) Tj
+76.0 442.0 moveto
+(Baseline -- Per-astronaut per-metric normal range: id \(String, PK\), astronaut_id \(FK\), metric,) Tj
+(normal_min, normal_max, calculated_at, reading_count.) Tj
+54.0 414.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 414.0 moveto
+(*) Tj
+76.0 414.0 moveto
+(Achievement -- Awarded milestones: id \(String, PK\), astronaut_id \(FK\), type \(AchievementType) Tj
+(enum\), earned_at.) Tj
+54.0 386.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 386.0 moveto
+(*) Tj
+76.0 386.0 moveto
+(Reminder -- Cron-based: id \(String, PK\), astronaut_id \(FK\), type, cron_expression, message,) Tj
+(active, created_at.) Tj
+54.0 358.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 358.0 moveto
+(*) Tj
+76.0 358.0 moveto
+(AuditEvent -- Append-only log: id \(String, PK\), astronaut_id \(FK, nullable\), action, details) Tj
+(\(JSON Text\), created_at.) Tj
+54.0 330.0 moveto
+/F1 10.0 Tf
+0.157 0.157 0.157 rg
+62.0 330.0 moveto
+(*) Tj
+76.0 330.0 moveto
+(Outbox -- DTN queue: id \(String, PK\), astronaut_id \(FK\), payload_type, payload_json \(Text\),) Tj
+(status \(pending/synced/failed\), created_at, attempts, last_attempt_at.) Tj
+54.0 302.0 moveto
+ET
+endstream
+endobj
+
+18 0 obj
+<< /Length 4282 >>
+stream
+BT
+/F2 18.0 Tf
+0.051 0.278 0.631 rg
+54.0 720.0 moveto
+(Deployment & Conclusion) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 698.0 moveto
+(Containerization & Kubernetes) Tj
+54.0 682.0 moveto
+(The application uses a multi-stage Dockerfile. The builder stage installs dependencies and) Tj
+54.0 668.0 moveto
+(runs next build. The production stage copies only the .next output, public assets,) Tj
+54.0 654.0 moveto
+(package.json, and production dependencies -- minimizing image size and attack surface. Port) Tj
+54.0 640.0 moveto
+(3000 is exposed. docker-compose.yml defines three services: Next.js app \(port 3000\),) Tj
+54.0 626.0 moveto
+(PostgreSQL 15 \(port 5432\), and optional Redis \(port 6379\). Credentials come from) Tj
+54.0 612.0 moveto
+(environment variables, not hardcoded values.) Tj
+54.0 590.0 moveto
+(K8s manifests include a Deployment \(2 replicas, 500m CPU / 512Mi memory,) Tj
+54.0 576.0 moveto
+(liveness/readiness/startup probes on /healthz\), a ClusterIP Service \(port 80 -> 8000\), and a) Tj
+54.0 562.0 moveto
+(LoadBalancer Service. A ConfigMap provides NODE_ENV and NEXT_PUBLIC_APP_NAME. Secrets are) Tj
+54.0 548.0 moveto
+(referenced from a separate Secret resource -- no credentials are committed to the) Tj
+54.0 534.0 moveto
+(repository. The previous committed base64 secrets have been removed and replaced with) Tj
+54.0 520.0 moveto
+(stringData placeholders.) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 494.0 moveto
+(Configuration) Tj
+54.0 478.0 moveto
+(Environment variables: DATABASE_URL \(PostgreSQL connection string\), ASTRA_API_KEY \(API key) Tj
+54.0 464.0 moveto
+(for service-to-service auth\), ASTRA_ED25519_PUBLIC_KEY_B64 \(Ed25519 public key for bundle) Tj
+54.0 450.0 moveto
+(verification\). The .env file is gitignored. TypeScript tsconfig.json targets ES2017 with) Tj
+54.0 436.0 moveto
+(strict mode and path aliases \(@/* -> ./src/*\). Python pyproject.toml declares dependencies) Tj
+54.0 422.0 moveto
+(including fastapi, uvicorn, sqlalchemy[asyncio], pydantic>=2.7.0, cryptography>=43.0.0, and) Tj
+54.0 408.0 moveto
+(python-jose.) Tj
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 382.0 moveto
+(Key Achievements) Tj
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 366.0 moveto
+(*) Tj
+76.0 366.0 moveto
+(Complete offline-first architecture with encrypted local storage and DTN sync -- no constant) Tj
+(Earth connectivity required.) Tj
+54.0 336.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 336.0 moveto
+(*) Tj
+76.0 336.0 moveto
+(Clinically grounded interpretation engine with four-stage classification: band, trend,) Tj
+(combined-signal, and guidance.) Tj
+54.0 306.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 306.0 moveto
+(*) Tj
+76.0 306.0 moveto
+(Role-based access control with constant-time API-key auth and Ed25519 bundle verification.) Tj
+54.0 289.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 289.0 moveto
+(*) Tj
+76.0 289.0 moveto
+(Pure on-device operation with zero external UI dependencies -- no supply-chain risk from UI) Tj
+(libraries.) Tj
+54.0 259.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 259.0 moveto
+(*) Tj
+76.0 259.0 moveto
+(Append-only audit logging for medical compliance, forensics, and anomaly investigation.) Tj
+54.0 242.0 moveto
+/F1 10.5 Tf
+0.157 0.157 0.157 rg
+62.0 242.0 moveto
+(*) Tj
+76.0 242.0 moveto
+(Gamification layer \(7 achievement types, wellness scoring, streak tracking\) supporting) Tj
+(sustained crew engagement.) Tj
+54.0 212.0 moveto
+/F2 13.0 Tf
+0.086 0.314 0.627 rg
+54.0 200.0 moveto
+(Known Limitations & Next Steps) Tj
+54.0 184.0 moveto
+(The Prisma ORM client \(@prisma/client\) is not installed in the current environment, so the) Tj
+54.0 170.0 moveto
+(Next.js API routes degrade gracefully to 503 responses rather than failing silently.) Tj
+54.0 156.0 moveto
+(Installing prisma and @prisma/client and running prisma generate would enable the full) Tj
+54.0 142.0 moveto
+(database-backed API path. The FastAPI backend dependencies are declared in pyproject.toml) Tj
+54.0 128.0 moveto
+(but not installed in this development environment. The RBAC dependency uses a demo) Tj
+54.0 114.0 moveto
+(X-User-Role header -- production requires JWT or mTLS. The interpretation engine's normal) Tj
+54.0 100.0 moveto
+(ranges and guidance text have not yet been validated against formal space medicine) Tj
+54.0 86.0 moveto
+(protocols.) Tj
+ET
+endstream
+endobj
+
+
+xref
+0 21
+0000000000 65535 f
+0000000000 00000 n
+0000000000 00000 n
+0000000000 00000 n
+0000000001 00000 n
+0000000002 00000 n
+0000000163 00000 n
+0000000324 00000 n
+0000000485 00000 n
+0000000646 00000 n
+0000000807 00000 n
+0000000968 00000 n
+0000001130 00000 n
+0000001201 00000 n
+0000001278 00000 n
+0000001358 00000 n
+0000003708 00000 n
+0000006019 00000 n
+0000009380 00000 n
+0000012211 00000 n
+0000015636 00000 n
+0000019106 00000 n
+
+trailer
+<< /Size 22 /Root 1 0 R >>
+startxref
+%%EOF
